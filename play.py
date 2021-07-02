@@ -1,12 +1,14 @@
 import time
-from pygame import mixer
+from playsound import playsound
+import threading
+import sys
 
-mixer.init()
-mixer.music.load('bad_apple.mp3')
-mixer.music.play()
+f = threading.Thread(target=lambda: playsound('bad_apple.mp3'))
+f.start()
 
 with open('bad_apple.txt', 'r') as file:
     arr = file.read().split('split')
 for frame in arr:
     print(frame, end='')
-    time.sleep(0.01843)
+    #time.sleep(0.029)
+print("\nTurn off terminal to exit\nthis is error i don't know how to kill multithread")
